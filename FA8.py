@@ -1,0 +1,5 @@
+print("Bem vindo à loja Bugigangas e Quinquilharias, para calcular o peso total de seu pedido, siga as instruções a seguir: ")
+bugigangas = int(input("Insira o numero que bigigangas que está levando: "))
+quinquilharias = int(input("insira o número de quinquilharias que está levando: "))
+orderweight = float(bugigangas * 0.075 + quinquilharias * 0.112)
+print(f"Incrível! seu pedido tem um peso total de {orderweight}Kg!")
