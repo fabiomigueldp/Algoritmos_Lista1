@@ -1,13 +1,32 @@
 import math
 
-print("Bem vindo à calculadora de distância entre pontos na superfície terrestre, para calcula a distância entre dois pontos siga as instruções a seguir:")
+def haversine(lat1, lon1, lat2, lon2):
+    R = 6372.8  # Raio da Terra em km
 
-lat1 = float(input("Insira a látitude do ponto 1: "))
-lon1 = float(input("insira a longitude do ponto 1: "))
-lat2 = float(input("Insira a látitude do ponto 2: "))
-lon2 = float(input("Insira a longitude do ponto 2: "))
+    # Converter graus decimais para radianos
+    dLat = math.radians(lat2 - lat1)
+    dLon = math.radians(lon2 - lon1)
+    lat1 = math.radians(lat1)
+    lat2 = math.radians(lat2)
 
-haversine = 6371.01 * math.acos(math.sin(lat1)*math.sin(lat2)+math.cos(lat1)*math.cos(lat2)*math.cos(lon1-lon2))
-#A Fórmula de Haversine está incorreta.
-print(f"A distância entre os pontos inseridos, é de {haversine}km.")
-print("teste")
+    # Aplicar a fórmula de Haversine
+    a = math.sin(dLat/2)**2 + math.sin(dLon/2)**2 * math.cos(lat1) * math.cos(lat2)
+    c = 2 * math.asin(math.sqrt(a))
+
+    # Calcular a distância em km
+    distance = R * c
+    return distance
+
+# solicita as coordenadas do ponto A
+lat1 = float(input("Insira a latitude do ponto A: "))
+lon1 = float(input("Insira a longitude do ponto A: "))
+
+# solicita as coordenadas do ponto B
+lat2 = float(input("Insira a latitude do ponto B: "))
+lon2 = float(input("Insira a longitude do ponto B: "))
+
+# calcula a distância
+dist = haversine(lat1, lon1, lat2, lon2)
+
+# imprime a distância em km
+print(f"A distância entre os pontos A e B é de {dist:.2f} km.")
