@@ -22,5 +22,5 @@ volume = volume_esfera(raio)
 
 # Imprime a área e o volume
 
-print(f"A área de uma circunferência de raio {raio} é de {area: .2f}X.")
-print(f"O volume de uma esfera de raio {raio} é de {volume: .2f}X.")
+print(f"A área de uma circunferência de raio {raio} é de {area: .2f}X^2.")
+print(f"O volume de uma esfera de raio {raio} é de {volume: .2f}X^3.")
